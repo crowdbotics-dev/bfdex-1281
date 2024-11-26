@@ -4,5 +4,10 @@ from django.db import models
 
 class Yhbchd(models.Model):
     "Generated Model"
-    yejcx = models.BigIntegerField()
-    bcndjd = models.BigIntegerField()
+    yejcx23 = models.BigIntegerField(
+        blank=True,
+        null=True,
+    )
+    bcndjd = models.BigIntegerField(
+        blank=True,
+    )
