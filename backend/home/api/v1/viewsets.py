@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Yhbchd
-from .serializers import YhbchdSerializer
+from home.models import Yhbchd, Abc
+from .serializers import AbcSerializer, YhbchdSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -41,3 +41,12 @@ class YhbchdViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Yhbchd.objects.all()
+
+
+class AbcViewSet(viewsets.ModelViewSet):
+    serializer_class = AbcSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Abc.objects.all()
