@@ -6,6 +6,24 @@ const bfdexAPI = axios.create({
 function api_docs_schema_retrieve(payload) {
   return bfdexAPI.get(`/api-docs/schema/`, { params: { lang: payload.lang } })
 }
+function api_v1_abc_list(payload) {
+  return bfdexAPI.get(`/api/v1/abc/`)
+}
+function api_v1_abc_create(payload) {
+  return bfdexAPI.post(`/api/v1/abc/`, payload)
+}
+function api_v1_abc_retrieve(payload) {
+  return bfdexAPI.get(`/api/v1/abc/${payload.id}/`)
+}
+function api_v1_abc_update(payload) {
+  return bfdexAPI.put(`/api/v1/abc/${payload.id}/`, payload)
+}
+function api_v1_abc_partial_update(payload) {
+  return bfdexAPI.patch(`/api/v1/abc/${payload.id}/`, payload)
+}
+function api_v1_abc_destroy(payload) {
+  return bfdexAPI.delete(`/api/v1/abc/${payload.id}/`)
+}
 function api_v1_login_create(payload) {
   return bfdexAPI.post(`/api/v1/login/`, payload)
 }
@@ -83,6 +101,12 @@ function rest_auth_user_partial_update(payload) {
 }
 export const apiService = {
   api_docs_schema_retrieve,
+  api_v1_abc_list,
+  api_v1_abc_create,
+  api_v1_abc_retrieve,
+  api_v1_abc_update,
+  api_v1_abc_partial_update,
+  api_v1_abc_destroy,
   api_v1_login_create,
   api_v1_signup_create,
   api_v1_yhbchd_list,
