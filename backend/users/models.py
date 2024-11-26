@@ -23,6 +23,25 @@ class User(AbstractUser):
         blank=True,
         max_length=255,
     )
+    rel_yhbchd_1_1 = models.OneToOneField(
+        "home.Yhbchd",
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+        related_name="user_rel_yhbchd_1_1",
+    )
+    rel_yhbchd_n_n = models.ManyToManyField(
+        "home.Yhbchd",
+        blank=True,
+        related_name="user_rel_yhbchd_n_n",
+        null=True,
+    )
+    rel_yhbchd_n_n_1 = models.ManyToManyField(
+        "home.Yhbchd",
+        blank=True,
+        related_name="user_rel_yhbchd_n_n_1",
+        null=True,
+    )
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
